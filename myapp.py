@@ -5,7 +5,7 @@ import uuid
 
 app = Flask(__name__)
 
-@app.route('/convert', methods=['POST'])
+@app.route('/PDF2DOCX', methods=['POST'])
 def convert_pdf_to_docx():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
