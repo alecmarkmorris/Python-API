@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, send_file
 from pdf2docx import Converter
 import os
 import uuid
+import smtplib
+import sys
 
 app = Flask(__name__)
 
@@ -41,4 +43,26 @@ if __name__ == '__main__':
 def hello_world():
     return 'Hello, World!'
 
+@app.route("SendText")
+def send_message():
+    CARRIERS = {
+        "att": "@mms.att.net",
+        "tmobile": "@tmomail.net",
+        "verizon": "@vtext.com",
+        "sprint": "@messaging.sprintpcs.com"
+    }
+    phone_number= "4802996741"
+    carrier = "verizon"
+    message = "Hello World from API"
+    EMAIL = "alecmarkmorris@gmail.com"
+    PASSWORD = "bkrh eggo bcuc szoa"
+    
+    recipient = phone_number + CARRIERS[carrier]
+    auth = (EMAIL, PASSWORD)
+    
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login(auth[0], auth[1])
+    server.sendmail(auth[0], recipient, message)
+ 
 
