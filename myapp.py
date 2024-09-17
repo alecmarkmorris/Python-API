@@ -64,5 +64,6 @@ def send_message():
     server.starttls()
     server.login(auth[0], auth[1])
     server.sendmail(auth[0], recipient, message)
+    return "Hello, World text sent"
  
 
