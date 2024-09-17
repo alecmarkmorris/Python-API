@@ -43,7 +43,7 @@ if __name__ == '__main__':
 def hello_world():
     return 'Hello, World!'
 
-@app.route("SendText")
+@app.route("/SendText", methods=['POST'])
 def send_message():
     CARRIERS = {
         "att": "@mms.att.net",
