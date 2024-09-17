@@ -55,7 +55,7 @@ def send_message():
     carrier = "verizon"
     message = "Hello World from API"
     EMAIL = "alecmarkmorris@gmail.com"
-    PASSWORD = "bkrh eggo bcuc szoa"
+    PASSWORD = "ozqi rgly dnbw pdzx"
     
     recipient = phone_number + CARRIERS[carrier]
     auth = (EMAIL, PASSWORD)
